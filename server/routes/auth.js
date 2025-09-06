@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import config from "../config/config.js";
-import { sendGitHubTimelineEmail } from "../utils/mailer.js"; // ✅ only this import
+import { sendGitHubTimelineEmail } from "../utils/mailer.js"; 
 
 const router = express.Router();
 
@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    // ✅ Only call the mailer function
+    
     await sendGitHubTimelineEmail(user.email);
 
     res.json({ message: "Login successful, GitHub timeline sent to your email", token });
